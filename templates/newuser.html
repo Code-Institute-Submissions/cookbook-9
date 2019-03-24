@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Cook Book!</h1>
+  
+  <p>New users, please create your unique username below!</p>
+  <div class="row">
+    <form name="new" method="POST" class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="new_user" name="new_user" type="text" class="validate">
+            <button class="btn waves-effect waves-light deep-orange darken-3" type="submit" id="submit_new" name="action">Submit
+            <i class="material-icons right">send</i>
+            </button>
+          <label for="new_user">New User</label>
+        </div>
+      </div>
+    </form>
+  </div>
+  
+{% endblock %}
