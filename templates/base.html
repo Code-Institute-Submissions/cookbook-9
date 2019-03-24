@@ -4,10 +4,12 @@
 <head>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="../static/css/style.css" type="text/css" />
 
 </head>
 
 <body>
+    
   <nav>
     <div class="nav-wrapper deep-orange darken-4">
       <a href="{{ url_for('index') }}" class="brand-logo">Logo</a>
@@ -27,6 +29,8 @@
         <li><a href="collapsible.html">Javascript</a></li>
         <li><a href="mobile.html">Mobile</a></li>
     </ul>
+    
+    <h1>Cook Book!</h1>
 
     {% block content %}{% endblock %}
 
