@@ -9,7 +9,7 @@
         <form name="existing" method="POST">
             <div class="row">
                 <div class="input-field col s12">
-                    <input placeholder="Existing Username" id="username" type="text" class="validate" name="username">
+                    <input placeholder="Existing Username" id="username" type="text" class="validate  col s6 offset-s3" name="username" >
                     <button class="btn waves-effect waves-light deep-orange darken-3 col s6 offset-s3" type="submit" id="submit" name="action">Submit
                     </button>
                 </div>
@@ -21,6 +21,7 @@
 
 <div class="container">
     <div class="row">
+        <p>New users please click the button below</p>
         <a class="btn waves-effect waves-light deep-orange darken-3 col s6 offset-s3" href="{{ url_for('add_user') }}">
             New User
         </a>
