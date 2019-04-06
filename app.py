@@ -48,7 +48,12 @@ def add_user():
 
 @app.route('/<username>/get_recipe')
 def get_recipe(username):
-    return render_template("recipes.html", 
+    return render_template("get_recipe.html",username=username,
+    recipes=mongo.db.recipes.find())
+    
+@app.route('/add_recipe')
+def add_recipe():
+    return render_template("add_recipe.html",
     recipes=mongo.db.recipes.find())
     
 if __name__ == '__main__':

@@ -1,0 +1,58 @@
+{% extends 'base.html' %} {% block content %}
+
+<h2> Hello {{ username }}</h2>
+
+ <p>To add a recipe to the webiste please click "add recipe". Alternatively feel free to browse our existing recipes by using the search boxes below.</p>
+
+
+<div class="row">
+    <div>
+        <a class="btn waves-effect waves-light deep-orange darken-3 col s4 l2 offset-s4 offset-l5" href="{{ url_for('add_recipe') }}">Add Recipe</a>
+    </div>
+</div>
+
+<div class="row">
+    <h3>Search</h3>
+    <p>Fill in one or more search items</p>
+    <form class="col s12">
+        <div class="row">
+            <div class="input-field col s12 l6">
+                <i class="material-icons prefix">search</i>
+                <input id="Main Ingredient" type="text" class="center-align validate blue-grey darken-4 white-text">
+                <label for="Main Ingredient">Main Ingredient</label>
+            </div>
+
+            <div class="input-field col s12 l6">
+                   <i class="material-icons prefix">search</i>
+                <input id="Cuisine" type="text" class="center-align validate blue-grey darken-4 white-text">
+                <label  for="Cuisine">Cuisine</label>
+            </div>
+
+            <div class="input-field col s12 l6">
+
+                <i class="material-icons prefix">search</i>
+                <input id="other_ingredient" type="text" class="center-align validate blue-grey darken-4 white-text">
+                <label  for="other_ingredient">Other Ingredient</label>
+
+            </div>
+
+            <div class="input-field col s12 l6">
+
+                <i class="material-icons prefix">search</i>
+                <input id="Allergy" type="text" class="center-align validate blue-grey darken-4 white-text">
+                <label for="Allergy">Allergy</label>
+
+            </div>
+
+        </div>
+        <div class="row">
+        <div class="input-field">
+        <button class="btn waves-effect waves-light deep-orange darken-3 col s4 l2 offset-s4 offset-l5" type="submit" id="submit_new" name="action">Search
+
+        </button>
+    </div>
+</div>
+</form>
+</div>
+
+{% endblock %}

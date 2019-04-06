@@ -1,0 +1,48 @@
+{% extends 'base.html' %} {% block content %}
+
+
+<div class="row">
+    <form class="col s12">
+
+        <div class="input-field col s12 l5">
+            <input id="recipeName" type="text" class="center-align validate blue-grey darken-4 white-text">
+            <label for="recipeName">Recipe Name</label>
+        </div>
+
+
+        <div class="input-field col s12 l5">
+            <input id="mainIngredient" type="text" class="validate blue-grey darken-4 white-text">
+            <label for="mainIngredient">Main Ingredient</label>
+        </div>
+
+
+        <div class="input-field col s12 l5">
+            <input id="ingredients" type="text" class="validate blue-grey darken-4 white-text">
+            <label for="ingredients">Other ingredients</label>
+        </div>
+
+
+        <div class="input-field col s12 l5">
+            <input id="allergy" type="text" class=" validate blue-grey darken-4 white-text">
+            <label for="allergy">Allergy Warning</label>
+        </div>
+
+
+        <div class="input-field col s12 l5">
+            <input id="Author" type="text" class=" validate blue-grey darken-4 white-text">
+            <label for="Author">Author</label>
+        </div>
+
+
+            <form class="col s12 l6">
+                <div class="input-field col s12">
+                    <textarea id="instructions" class="materialize-textarea validate blue-grey darken-4 white-text"></textarea>
+                    <label for="instructions">Instructions</label>
+                </div>
+
+        </form>
+</div>
+</form>
+</div>
+
+{% endblock %}
