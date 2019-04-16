@@ -2,47 +2,58 @@
 
 
 <div class="row">
-    <form class="col s12">
+    <form action="{{ url_for('insert_recipe', username=username) }}" method="POST" class="col s12">
 
         <div class="input-field col s12 l5">
-            <input id="recipeName" type="text" class="center-align validate blue-grey darken-4 white-text">
+            <input id="recipeName" name="recipeName" type="text" class="center-align validate blue-grey darken-4 white-text">
             <label for="recipeName">Recipe Name</label>
         </div>
 
 
         <div class="input-field col s12 l5">
-            <input id="mainIngredient" type="text" class="validate blue-grey darken-4 white-text">
-            <label for="mainIngredient">Main Ingredient</label>
+            <input id="Main_Ingredient" name="Main_Ingredient" type="text" class="validate blue-grey darken-4 white-text">
+            <label for="Main_Ingredient">Main Ingredient</label>
         </div>
 
 
         <div class="input-field col s12 l5">
-            <input id="ingredients" type="text" class="validate blue-grey darken-4 white-text">
+            <input id="ingredients" name="ingredients" type="text" class="validate blue-grey darken-4 white-text">
             <label for="ingredients">Other ingredients</label>
         </div>
 
 
         <div class="input-field col s12 l5">
-            <input id="allergy" type="text" class=" validate blue-grey darken-4 white-text">
-            <label for="allergy">Allergy Warning</label>
+            <input id="Allergies" name="Allergies" type="text" class=" validate blue-grey darken-4 white-text">
+            <label for="Allergies">Allergy Warning</label>
         </div>
 
 
         <div class="input-field col s12 l5">
-            <input id="Author" type="text" class=" validate blue-grey darken-4 white-text">
+            <input id="Author" name="Author" type="text" class=" validate blue-grey darken-4 white-text">
             <label for="Author">Author</label>
         </div>
 
+        <div class="input-field col s12 l5">
+            <input id="Cuisine" name="Cuisine" type="text" class=" validate blue-grey darken-4 white-text">
+            <label for="Cuisine">Cuisine</label>
+        </div>
 
-            <form class="col s12 l6">
-                <div class="input-field col s12">
-                    <textarea id="instructions" class="materialize-textarea validate blue-grey darken-4 white-text"></textarea>
-                    <label for="instructions">Instructions</label>
-                </div>
 
-        </form>
-</div>
-</form>
+
+        <div class="input-field col s12">
+            <textarea id="instructions" name="instructions" class="materialize-textarea validate blue-grey darken-4 white-text"></textarea>
+            <label for="instructions">Instructions</label>
+        </div>
+        
+        <div class="row">
+            <div>
+                <button class="btn waves-effect waves-light deep-orange darken-3 col s4 l2 offset-s4 offset-l5" type="submit" id="submit_new" name="action">Submit
+                </button>
+            </div>
+
+        </div>
+        
+    </form>
 </div>
 
 {% endblock %}

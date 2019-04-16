@@ -5,31 +5,33 @@
   <link href="https://fonts.googleapis.com/css?family=Bitter|Cabin|Glegoo|Lalezar|Passion+One|Patua+One|Paytone+One|Oswald" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="../static/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css" />
 
 </head>
-<div class="background">
+
 
   <body>
 
     <nav>
       <div class="nav-wrapper blue-grey darken-4">
-        <a href="{{ url_for('index') }}" class="brand-logo">Logo</a>
+        <a href="{{ url_for('index') }}" class="brand-logo">Cook Book</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-          <li><a href="sass.html">Sass</a></li>
-          <li><a href="badges.html">Components</a></li>
-          <li><a href="collapsible.html">Javascript</a></li>
-          <li><a href="mobile.html">Mobile</a></li>
+          <li><a href="{{url_for('control_panel', username=username)}}">Home</a></li>
+          <li><a href="{{url_for('get_recipe', username=username)}}">Search</a></li>
+          <li><a href="{{url_for('add_recipe', username=username)}}">Add</a></li>
+          <li><a href="sass.html">Delete</a></li>
+          <li><a href="sass.html">Edit</a></li>
         </ul>
       </div>
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
-      <li><a href="sass.html">Sass</a></li>
-      <li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">Javascript</a></li>
-      <li><a href="mobile.html">Mobile</a></li>
+          <li><a href="{{url_for('control_panel', username=username)}}">Home</a></li>
+          <li><a href="{{url_for('get_recipe', username=username)}}">Search</a></li>
+          <li><a href="{{url_for('add_recipe', username=username)}}">Add</a></li>
+          <li><a href="sass.html">Delete</a></li>
+          <li><a href="sass.html">Edit</a></li>
     </ul>
 
 
@@ -50,7 +52,7 @@
         $('select').formSelect();
       });
     </script>
-</div>
+
 </body>
 
 

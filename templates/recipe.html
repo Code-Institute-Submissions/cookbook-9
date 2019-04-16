@@ -1,13 +1,14 @@
 {% extends 'base.html' %} {% block content %}
 
-{% for recipe in recipes %} {{ recipe.recipeName}} {% endfor %}
-
-<ul>
-    <li>View</li>
-    <li>Add</li>
-    <li>Delete</li>
-    <li>Edit</li>
-</ul>
+<div class="result">
+    <h3>Recipe Name</h3>
+    <h4>Author</h4>
+    <h4>Cusine</h4>
+    <h5>Main Ingredient</h5>
+    <p class = "recipe">Ingredients</p>
+    <p class = "recipe">Instructions</p>
+    <p class = "recipe">Allergies</p>
+</div>
 
 
 

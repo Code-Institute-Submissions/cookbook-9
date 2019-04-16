@@ -23,7 +23,7 @@ def index():
             lines = file.read().split()
             
         if request.form["username"] in lines:
-            user =  request.form["username"] + "/get_recipe"
+            user =  request.form["username"] + "/control_panel"
             return redirect(user)
         else:
             return "<h3>No username found</h3>"
@@ -40,21 +40,44 @@ def add_user():
             return "<h3>username in use</h3>"
         else:
             write_to_file("data/users.txt", request.form["new_user"] + "\n")
-            user =  request.form["new_user"] + "/get_recipe"
+            user =  request.form["new_user"] + "/control_panel"
             return redirect(user)
     return render_template("newuser.html")
 
 
+@app.route('/<username>/control_panel')
+def control_panel(username):
+    return render_template("control_panel.html",username=username,
+    recipes=mongo.db.recipes.find())
+
+@app.route('/<username>/add_recipe')
+def add_recipe(username):
+    return render_template('add_recipe.html',username=username,
+                           recipes=mongo.db.recipes.find())
 
 @app.route('/<username>/get_recipe')
 def get_recipe(username):
-    return render_template("get_recipe.html",username=username,
-    recipes=mongo.db.recipes.find())
+    return render_template('get_recipe.html',username=username,
+                           recipes=mongo.db.recipes.find())
+                           
+@app.route('/<username>/return_recipe', methods=['POST'])
+def return_recipe(username):
+    recipes = mongo.db.recipes
+    cuisine = request.form["Cuisine"]
+    result = recipes.find({"Cuisine": cuisine})
+    return redirect(result)
     
-@app.route('/add_recipe')
-def add_recipe():
-    return render_template("add_recipe.html",
-    recipes=mongo.db.recipes.find())
+@app.route('/<username>/insert_recipe', methods=['POST'])
+def insert_recipe(username):
+    recipes = mongo.db.recipes
+    recipes.insert_one(request.form.to_dict())
+    return redirect(url_for('add_recipe', username=username))
+
+@app.route('/<username>/recipe')
+def recipe(username):
+    return render_template('recipe.html',username=username,
+                           recipes=mongo.db.recipes.find())
+
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
