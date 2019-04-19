@@ -63,14 +63,31 @@ def get_recipe(username):
 @app.route('/<username>/return_recipe', methods=['GET','POST'])
 def return_recipe(username):
     recipes = mongo.db.recipes
-    cuisine = request.form.get("COO")
-    mainIngredient = request.form.get("main")
-    ingredients = request.form.get("ingredients")
-    allergies = request.form.get("allergies")
-    results = recipes.find({"$or": [{"cuisine": cuisine}, 
-                          {"allergies": allergies}, 
-                          {"mainIngredient": mainIngredient}, 
-                          {"ingredients": ingredients}]})
+    
+    if request.form.get("COO") != "":
+        cuisine = request.form.get("COO")
+    else: cuisine = { '$exists':True, '$ne': [] }
+    
+    if request.form.get("main") != "":
+        mainIngredient = request.form.get("main")
+    else: mainIngredient = { '$exists':True, '$ne': [] }
+    
+    if request.form.get("allergies") != "":
+        allergies = request.form.get("allergies")
+    else: allergies = { '$exists':True, '$ne': [] }
+    
+    if request.form.get("ingredients") != "":
+        ingredients = {"$regex": ".*" + request.form.get("ingredients") + ".*"}
+    else: ingredients = { '$exists':True, '$ne': [] }
+
+    results = recipes.find({"$and": 
+                         [  {"cuisine":cuisine }, 
+                            {"mainIngredient": mainIngredient},
+                            {"allergies": {"$ne": allergies}},
+                            {"ingredients": ingredients},
+                          ]})
+ 
+                          
     return render_template('recipe.html',username=username,
                           results=results)
                            
