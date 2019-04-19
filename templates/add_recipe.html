@@ -18,13 +18,13 @@
 
         <div class="input-field col s12 l5">
             <input id="ingredients" name="ingredients" type="text" class="validate blue-grey darken-4 white-text">
-            <label for="ingredients">Other ingredients</label>
+            <label for="ingredients">List other ingredients</label>
         </div>
 
 
         <div class="input-field col s12 l5">
             <input id="Allergies" name="Allergies" type="text" class=" validate blue-grey darken-4 white-text">
-            <label for="Allergies">Allergy Warning</label>
+            <label for="Allergies">List Allergies</label>
         </div>
 
 
@@ -34,8 +34,12 @@
         </div>
 
         <div class="input-field col s12 l5">
-            <input id="Cuisine" name="Cuisine" type="text" class=" validate blue-grey darken-4 white-text">
-            <label for="Cuisine">Cuisine</label>
+            <select id="Cuisine" name="Cuisine" type="text" class=" validate blue-grey darken-4 white-text">
+            <option value="" disabled selected>Choose Country</option>
+                  {% for country in countries %}
+                      <option value="{{country.name}}">{{country.name}}</option>
+                  {% endfor %}
+                </select>
         </div>
 
 

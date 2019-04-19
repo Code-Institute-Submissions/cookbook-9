@@ -53,19 +53,27 @@ def control_panel(username):
 @app.route('/<username>/add_recipe')
 def add_recipe(username):
     return render_template('add_recipe.html',username=username,
-                           recipes=mongo.db.recipes.find())
+                           countries=mongo.db.cuisine.find())
 
 @app.route('/<username>/get_recipe')
 def get_recipe(username):
     return render_template('get_recipe.html',username=username,
                            recipes=mongo.db.recipes.find())
                            
-@app.route('/<username>/return_recipe', methods=['POST'])
+@app.route('/<username>/return_recipe', methods=['GET','POST'])
 def return_recipe(username):
     recipes = mongo.db.recipes
-    cuisine = request.form["Cuisine"]
-    result = recipes.find({"Cuisine": cuisine})
-    return redirect(result)
+    cuisine = request.form.get("COO")
+    mainIngredient = request.form.get("main")
+    ingredients = request.form.get("ingredients")
+    allergies = request.form.get("allergies")
+    results = recipes.find({"$or": [{"cuisine": cuisine}, 
+                          {"allergies": allergies}, 
+                          {"mainIngredient": mainIngredient}, 
+                          {"ingredients": ingredients}]})
+    return render_template('recipe.html',username=username,
+                          results=results)
+                           
     
 @app.route('/<username>/insert_recipe', methods=['POST'])
 def insert_recipe(username):
@@ -76,7 +84,7 @@ def insert_recipe(username):
 @app.route('/<username>/recipe')
 def recipe(username):
     return render_template('recipe.html',username=username,
-                           recipes=mongo.db.recipes.find())
+                           recipe=mongo.db.recipes.find())
 
     
 if __name__ == '__main__':
