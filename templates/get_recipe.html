@@ -12,15 +12,19 @@
 
             <div class="input-field col s12 l6">
                    <i class="material-icons prefix">search</i>
-                <input id="COO" name="COO" type="text" class="center-align validate blue-grey darken-4 white-text">
-                <label  for="COO">Cuisine</label>
+                <select id="COO" name="COO" type="text" class="center-align validate blue-grey darken-4 white-text">
+                 <option value="" disabled selected>Choose Country</option>
+                  {% for country in countries %}
+                      <option value="{{country.name}}">{{country.name}}</option>
+                  {% endfor %}
+                </select>
             </div>
 
             <div class="input-field col s12 l6">
 
                 <i class="material-icons prefix">search</i>
                 <input id="ingredients" name="ingredients" type="text" class="center-align validate blue-grey darken-4 white-text">
-                <label  for="ingredients">Other Ingredient</label>
+                <label  for="ingredients">Secondary Ingredient</label>
 
             </div>
 

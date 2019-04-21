@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block content %}
+<div class="row">
+    <h3>Search</h3>
+    <p class="title">Fill in one or more search items</p>
+    <form action = "{{url_for('find_recipe', username=username)}}" method="POST" class="col s12">
+        <div class="row">
+            <div class="input-field col s12 l6">
+                <i class="material-icons prefix">search</i>
+                <input id="mainIngredient" name="mainIngredient" type="text" class="center-align validate blue-grey darken-4 white-text">
+                <label for="mainIngredient">Main Ingredient</label>
+            </div>
+
+            <div class="input-field col s12 l6">
+                   <i class="material-icons prefix">search</i>
+                <input id="recipeName" name="recipeName" type="text" class="center-align validate blue-grey darken-4 white-text">
+                <label  for="recipeName">Recipe Name</label>
+            </div>
+
+        </div>
+        <div class="row">
+        <div class="input-field">
+        <button class="btn waves-effect waves-light deep-orange darken-3 col s4 l2 offset-s4 offset-l5" type="submit" id="submit_new" name="action">Search
+
+        </button>
+    </div>
+</div>
+</form>
+</div>
+
+{% endblock %}
