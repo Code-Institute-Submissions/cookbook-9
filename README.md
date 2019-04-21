@@ -13,7 +13,7 @@ Be able to sign up to the site with a unique username. Have the ability to view 
 
 Wire frames were also created in order to design the layout of the site and these can be found [here][1]
 
-[1]: 
+[1]: https://github.com/cjmorgan1185/cookbook/tree/master/UX
 ## Features
 
 ### Existing Features
@@ -39,52 +39,77 @@ Wire frames were also created in order to design the layout of the site and thes
     * https://mlab.com/
 
 # Testing
-1.	Start Button:
-    1. Click “Start Button”
-    2. Game loads
-2.	Check boxes highlight when clicked
-    1.	Click all boxes
-    2.	All boxes light up as expected
-3.	Submit answer
-    1.	Select correct answer and verify “answer correct” message appears
-    2.	Select incorrect answer and verify “incorrect answer” message appear
-4.	Next button
-    1.	Get answer correct
-    2.	Click next button
-    3.	Verify sequence begins the same as before with one extra box highlighted.
-5.	Restart 
-    1.	Get answer incorrect
-    2.	Click start button
-    3.	Verify new sequence starts and only one box lights up
-6.	Test different answer types
-    1.	Too many boxes selected verify gives incorrect answer
-    2.	Too few boxes selected verify gives incorrect answer
-    3.	No boxes selected verify gives incorrect answer
-    4.	Incorrect sequence selected verify gives incorrect answer
-    5.	Correct sequence gives correct answer
+1.	New User
+    1. Click “New User”
+    2. Loads page to enter a new user name
+
+2.	Check unique username
+    1. added unique user
+    2. opens correct page with “hello user” as expected
+
+3.	Check unique username
+    1. added a username already in use
+    2. Got error message advising username in use
+
+4.	User login
+    1. added a username already in use
+    2. opens correct page with “hello user” as expected
+
+5.	Search button
+    1. Click “Search”
+    2. opens search page
+
+6.	Add button
+    1. Click “Add”
+    2. opens search page
+
+7.	Edit / Delete button
+    1. Click “Edit / Delete”
+    2. opens search page
+
+8.	Logout button
+    1. Click “Logout”
+    2. opens search page
+9.	Search function
+    1. Searched 1 condition only
+    2. Returns expected result
+
+10.	Search function
+    1. Searched 2 conditions only
+    2. Returns expected result
+
+11.	Search function
+    1. Searched 3 conditions only
+    2. Returns expected result
+
+12.	Search function
+    1. Searched 4 conditions
+    2. Returns expected result
+
+13.	Add function
+    1. Added test recipe
+    2. Returns expected result and recipe added to collection in mongodb
+
+13.	Edit function
+    1. Edited test recipe
+    2. Returns expected result and recipe was updated in collection in mongodb
+
+14.	Delete function
+    1. Deleted test recipe
+    2. Returns expected result and recipe was deleted from collection in mongodb
+
 
 7. link to browser test can be found [here][4]
 
-[4]:https://github.com/cjmorgan1185/memoryGame/blob/master/design/testing.xlsx?raw=true
-
-In relation to test 6, the first test showed that if you selected the correct sequence but added more boxes to you sequence it would still show answer correct. (i.e. sequence was red, red, blue, if user selected red, red, blue, blue, it would return correct answer message.) To fix this an extra condition was added to the answer if statement that took into account the size of the arrays
-```JavaScript
-    $("#answer-button").click(function() {
-        for (y = 0; y < sequence.length; y++) {
-            if (sequence[y] == answers[y] && sequence.length == answers.length {
-                $("#next-button").show();
-                $("#correct-message").show();
-                $("#answer-button").hide();
-                $(".box").hide();
-            }
-```
+[4]: https://github.com/cjmorgan1185/cookbook/tree/master/testing
 
 # Deployment
-The website has been deployed to github pages and can be found [here][3]
+The website has been deployed to heroku and can be found [here][3]
 
-[3]: https://cjmorgan1185.github.io/memoryGame/
+[3]:
+
 # Credits
 ## Acknowledgements
-•	Details of the original game called SIMON can be found [here][2]
+•	Initial recipes used on the webiste were taken from BBC good food website [here][2]
 
-[2]: https://en.wikipedia.org/wiki/Simon_(game)
+[2]: https://www.bbcgoodfood.com/
